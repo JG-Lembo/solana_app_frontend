@@ -1,0 +1,72 @@
+.gif-grid .gif-item {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.gif-item img {
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.gif-item span {
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: bold;
+}
+
+.extras {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 0;
+  justify-content: space-evenly;
+}
+
+.extra-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.like-button {
+  height: 45px;
+  border: 0;
+  width: 85px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-sizing: border-box;
+  color: white;
+}
+
+.like-button.liked{
+  background: -webkit-linear-gradient(left, #362dae, #47b8ab);
+  background-size: 200% 200%;
+}
+
+.like-button.not-liked {
+  background-color: #1a202c;
+  border: solid 2px white;
+}
+
+.like-button.not-liked:hover {
+  background: -webkit-linear-gradient(left, #362dae, #47b8ab);
+  background-size: 200% 200%;
+  border: none;
+}
+
+.like-button.liked:hover {
+  background: #1a202c;
+  border: solid 2px white;
+}
