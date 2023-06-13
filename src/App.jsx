@@ -162,17 +162,33 @@ const App = () => {
     }
   }
 
+  const capitalizeName = (name) => {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+  }
+
   const sendGif = async () => {
     if (linkInputValue.length === 0) {
       console.log("Nenhum link de GIF foi dado!")
+      alert("Insira o link de um GIF.");
       return
     }
+    else if (nameInputValue.length === 0) {
+      console.log("Nenhum nome de Pokémon foi dado!")
+      alert("Insira o nome de um Pokémon.");
+      return
+    }
+    else if (!(capitalizeName(nameInputValue) in PokemonList)) {
+      console.log("O nome de Pokémon inserido não é válido!")
+      alert("Insira um nome válido de Pokémon.");
+      return
+    }
+
     console.log('Link do GIF:', linkInputValue);
     try {
       const provider = getProvider();
       const program = new Program(idl, programID, provider);
-
-      await program.rpc.addGif(linkInputValue, nameInputValue, {
+      let name = capitalizeName(nameInputValue);
+      await program.rpc.addGif(linkInputValue, name, {
         accounts: {
           baseAccount: baseAccount.publicKey,
           user: provider.wallet.publicKey,
@@ -316,6 +332,7 @@ const App = () => {
             <img alt="Pokeball" className="pokeball" src={pokeball} />
           </div>
           <p className="sub-text">Veja a Pokédex completa em versão GIF! ✨</p>
+          <p className="description-text">Adicione o GIF mais legal que você encontrar de um dos Pokémons faltantes e vamos completar a GIFDEX!</p>
         </div>
         {!walletAddress && renderNotConnectedContainer()}
         {/* Precisamos apenas adicionar o inverso aqui! */}
