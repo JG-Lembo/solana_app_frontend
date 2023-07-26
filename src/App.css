@@ -112,8 +112,9 @@
 
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
-  grid-gap: 1.6em 1.87em;
+  grid-template-columns: repeat(4, 200px);
+  grid-gap: 0.6em 7em;
+  margin-left: 33px;
   justify-items: center;
 }
 
